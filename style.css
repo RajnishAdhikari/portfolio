@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Inter+Tight:wght@300;400;700&display=swap');
 *{
     margin: 0;  
     padding: 0;
@@ -5,8 +6,15 @@
 
 .sidebar{
     background-color: red;
+    width: 20vw;
+    font-family: 'Fira Sans', sans-serif;
+
 }
 
 .main{
     background-color: yellow;
+}
+
+.container{
+    display: flex;
 }
