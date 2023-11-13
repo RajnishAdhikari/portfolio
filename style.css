@@ -7,7 +7,7 @@
 
 .sidebar{
     background-color: rgb(182, 169, 169);
-    width: 15vw;
+    width: 434px;
     height: 100vh;
     font-family: 'Fira Sans', sans-serif;
 
@@ -20,6 +20,11 @@
     list-style:none ;
     font-size: 30px;
     padding: 35px;
+}
+
+.sidebar nav li a {
+    text-decoration: none;
+    color: black;
 }
 
 .main {
@@ -55,6 +60,7 @@
 .name{
     font-size: 50px;
     font-weight: bold;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 .about{
@@ -63,6 +69,7 @@
 
 .moreabout{
     font-size: 22;
+    margin-top: 23px;
 }
 
 .buttons{
