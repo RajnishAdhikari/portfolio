@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-container { padding: 2rem; max-width: 900px; margin: auto; }
+        .admin-section { background: var(--secondary-color); padding: 2rem; border-radius: 2rem; box-shadow: var(--shadow); margin-bottom: 2rem; }
+        .admin-section h2 { margin-bottom: 1rem; color: var(--heading-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem;}
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.8rem; border-radius: 1rem; border: 1px solid #ccc; }
+        .item-list { list-style: none; padding: 0; }
+        .item-list li { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid #eee; }
+        .item-list li:last-child { border-bottom: none; }
+        #logout-button { position: fixed; top: 20px; right: 20px; }
+    </style>
+</head>
+<body>
+    <button id="logout-button" class="btn btn-color-2">Logout</button>
+    <div class="admin-container">
+        <h1>Admin Dashboard</h1>
+
+        <!-- Profile Section -->
+        <div class="admin-section">
+            <h2>My Profile</h2>
+            <form id="profile-form">
+                <div class="form-group"><label for="full_name">Full Name</label><input type="text" id="full_name" required></div>
+                <div class="form-group"><label for="title">Title (e.g., Data Scientist)</label><input type="text" id="title" required></div>
+                <div class="form-group"><label for="email">Email</label><input type="email" id="email" required></div>
+                <div class="form-group"><label for="profile_text">About Me Text</label><textarea id="profile_text" rows="5"></textarea></div>
+                <button type="submit" class="btn btn-color-1">Save Profile</button>
+            </form>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="admin-section">
+            <h2>My Skills</h2>
+            <ul id="skills-list" class="item-list"></ul>
+            <form id="add-skill-form" style="margin-top: 2rem; border-top: 1px solid #eee; padding-top: 1rem;">
+                <h3>Add New Skill</h3>
+                <div class="form-group"><label for="skill-name">Name</label><input type="text" id="skill-name" required></div>
+                <div class="form-group"><label for="skill-level">Level</label><input type="text" id="skill-level" required></div>
+                <div class="form-group">
+                    <label for="skill-category">Category</label>
+                    <select id="skill-category" required>
+                        <option value="Frontend Development">Frontend Development</option>
+                        <option value="Backend Development">Backend Development</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-color-1">Add Skill</button>
+            </form>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="admin-section">
+            <h2>My Projects</h2>
+            <ul id="projects-list" class="item-list"></ul>
+            <h3 style="margin-top: 2rem;">Manage Project</h3>
+            <form id="project-form">
+                <input type="hidden" id="project-id">
+                <div class="form-group"><label for="project-title">Title</label><input type="text" id="project-title" required></div>
+                <div class="form-group"><label for="project-summary">Summary</label><input type="text" id="project-summary"></div>
+                <div class="form-group"><label for="project-long_description">Long Description</label><textarea id="project-long_description" rows="5"></textarea></div>
+                <div class="form-group"><label for="project-image_url">Image URL</label><input type="text" id="project-image_url"></div>
+                <div class="form-group"><label for="project-github_url">GitHub URL</label><input type="text" id="project-github_url"></div>
+                <div class="form-group"><label for="project-demo_url">Demo URL</label><input type="text" id="project-demo_url"></div>
+                <button type="submit" class="btn btn-color-1">Save Project</button>
+                <button type="button" id="new-project-btn" class="btn btn-color-2">New Project</button>
+            </form>
+        </div>
+
+    </div>
+    <script src="admin.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

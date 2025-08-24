@@ -1,103 +1,92 @@
 @media screen and (max-width: 1400px) {
-    #profile {
-      height: 83vh;
-      margin-bottom: 6rem;
-    }
-    .about-containers {
-      flex-wrap: wrap;
-    }
-    #contact,
-    #projects {
-      height: fit-content;
-    }
+  /* No specific changes needed here as the new design is more flexible */
+}
+
+@media screen and (max-width: 1200px) {
+  #desktop-nav {
+    display: none;
   }
-  
-  @media screen and (max-width: 1200px) {
-    #desktop-nav {
-      display: none;
-    }
-    #hamburger-nav {
-      display: flex;
-    }
-    #experience,
-    .experience-details-container {
-      margin-top: 2rem;
-    }
-    #profile,
-    .section-container {
-      display: block;
-    }
-    .arrow {
-      display: none;
-    }
-    section,
-    .section-container {
-      height: fit-content;
-    }
+  #hamburger-nav {
+    display: flex;
+  }
+  section {
+    margin: 0 5%;
+  }
+  #profile {
+    display: block;
+  }
+  .section__pic-container {
+    margin: 0 auto 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
     section {
-      margin: 0 5%;
+        margin: 0 2rem;
     }
-    .section__pic-container {
-      width: 275px;
-      height: 275px;
-      margin: 0 auto 2rem;
-    }
-    .about-containers {
-      margin-top: 0;
-    }
-  }
-  
-  @media screen and (max-width: 600px) {
-    #contact,
-    footer {
-      height: 40vh;
+    .details-container {
+        flex-basis: 100%; /* Stack cards vertically */
     }
     #profile {
-      height: 83vh;
-      margin-bottom: 0;
+        gap: 2rem;
     }
-    article {
-      font-size: 1rem;
-    }
-    footer nav {
-      height: fit-content;
-      margin-bottom: 2rem;
-    }
-    .about-containers,
-    .contact-info-upper-container,
-    .btn-container {
-      flex-wrap: wrap;
-    }
-    .contact-info-container {
-      margin: 0;
-    }
-    .contact-info-container p,
-    .nav-links li a {
-      font-size: 1rem;
-    }
-    .experience-sub-title {
-      font-size: 1.25rem;
-    }
-    .logo {
-      font-size: 1.5rem;
-    }
-    .nav-links {
-      flex-direction: column;
-      gap: 0.5rem;
-      text-align: center;
-    }
-    .section__pic-container {
-      width: auto;
-      height: 46vw;
-      justify-content: center;
-    }
-    .section__text__p2 {
-      font-size: 1.25rem;
+    .section__pic-container img {
+        height: 200px;
+        width: 200px;
     }
     .title {
-      font-size: 2rem;
+        font-size: 2.5rem;
     }
-    .text-container {
-      text-align: justify;
-    }
+}
+
+@media screen and (max-width: 600px) {
+  section {
+    margin: 0 1rem;
   }
+  .logo {
+    font-size: 1.5rem;
+  }
+  .nav-links {
+    display: none; /* Handled by hamburger menu */
+  }
+  .btn-container {
+    flex-wrap: wrap;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .section__text__p2 {
+    font-size: 1.25rem;
+  }
+
+  /* Hamburger menu links styling */
+  .hamburger-menu .menu-links {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: var(--secondary-color);
+      width: fit-content;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      box-shadow: var(--shadow);
+      border-radius: 1rem;
+  }
+  .menu-links.open {
+      max-height: 300px;
+  }
+  .menu-links a {
+      display: block;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      color: var(--text-color);
+  }
+  .menu-links a:hover {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+  }
+  .hamburger-icon span {
+      background-color: var(--heading-color);
+  }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Paper Details</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+    <style>
+        /* Re-using styles from project-detail for consistency */
+        .detail-section {
+            padding: 5rem 10rem;
+            margin-top: 5vh;
+        }
+        .detail-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 2rem;
+            border: rgb(53, 53, 53) 0.1rem solid;
+        }
+        .detail-container h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .detail-container h3 {
+            font-size: 1.5rem;
+            color: rgb(85, 85, 85);
+            margin-bottom: 0.5rem;
+        }
+        .detail-container h4 {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: rgb(85, 85, 85);
+            margin-bottom: 2rem;
+        }
+        .detail-container p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+        .back-link {
+            display: block;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: rgb(85, 85, 85);
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <section class="detail-section">
+        <div class="detail-container">
+            <a href="/#papers" class="back-link">&larr; Back to Portfolio</a>
+            <h1 id="paper-title"></h1>
+            <h3 id="paper-authors"></h3>
+            <h4 id="paper-publication"></h4>
+            <div id="paper-link" class="btn-container" style="margin-bottom: 2rem;">
+                <!-- Paper link button will be inserted here -->
+            </div>
+            <p id="paper-description"></p>
+        </div>
+    </section>
+    <script src="paper-detail.js"></script>
+</body>
+</html>

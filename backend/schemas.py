@@ -1,9 +1,8 @@
 from pydantic import BaseModel
 from typing import List, Optional
 
-# Base and Create schemas define the shape for input data (e.g., when creating a new item).
-# The main schemas (e.g., Skill, Project) define the shape for output data from the API.
-# The `Config` class with `from_attributes = True` allows the Pydantic model to read data from ORM objects.
+# --- Base and Create Schemas ---
+# These define the shape of data for creating new items.
 
 class SkillBase(BaseModel):
     category: str
@@ -13,14 +12,10 @@ class SkillBase(BaseModel):
 class SkillCreate(SkillBase):
     pass
 
-class Skill(SkillBase):
-    id: int
-
-    class Config:
-        from_attributes = True
-
 class ProjectBase(BaseModel):
     title: str
+    summary: Optional[str] = None
+    long_description: Optional[str] = None
     image_url: Optional[str] = None
     github_url: Optional[str] = None
     demo_url: Optional[str] = None
@@ -28,11 +23,16 @@ class ProjectBase(BaseModel):
 class ProjectCreate(ProjectBase):
     pass
 
-class Project(ProjectBase):
-    id: int
+class ResearchPaperBase(BaseModel):
+    title: str
+    authors: str
+    publication: str
+    summary: Optional[str] = None
+    long_description: Optional[str] = None
+    paper_url: Optional[str] = None
 
-    class Config:
-        from_attributes = True
+class ResearchPaperCreate(ResearchPaperBase):
+    pass
 
 class EducationBase(BaseModel):
     degree: str
@@ -41,24 +41,12 @@ class EducationBase(BaseModel):
 class EducationCreate(EducationBase):
     pass
 
-class Education(EducationBase):
-    id: int
-
-    class Config:
-        from_attributes = True
-
 class ExperienceBase(BaseModel):
     duration: str
     title: str
 
 class ExperienceCreate(ExperienceBase):
     pass
-
-class Experience(ExperienceBase):
-    id: int
-
-    class Config:
-        from_attributes = True
 
 class UserBase(BaseModel):
     username: str
@@ -70,14 +58,54 @@ class UserBase(BaseModel):
 class UserCreate(UserBase):
     password: str
 
+
+# --- API Response Schemas ---
+# These define the shape of data returned from the API.
+# `from_attributes = True` allows them to be created from database models.
+
+class Skill(SkillBase):
+    id: int
+    class Config:
+        from_attributes = True
+
+class Project(ProjectBase):
+    id: int
+    class Config:
+        from_attributes = True
+
+class ResearchPaper(ResearchPaperBase):
+    id: int
+    class Config:
+        from_attributes = True
+
+class Education(EducationBase):
+    id: int
+    class Config:
+        from_attributes = True
+
+class Experience(ExperienceBase):
+    id: int
+    class Config:
+        from_attributes = True
+
 # This is the main schema for returning all portfolio data for a user.
-# It includes lists of the related items.
 class User(UserBase):
     id: int
     skills: List[Skill] = []
     projects: List[Project] = []
+    papers: List[ResearchPaper] = []
     education_entries: List[Education] = []
     experience_entries: List[Experience] = []
 
     class Config:
         from_attributes = True
+
+# --- Token Schemas ---
+# For handling JWT authentication.
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class TokenData(BaseModel):
+    username: Optional[str] = None
